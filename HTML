@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wiffle Ball Tracker</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h1>⚾ Wiffle Ball Tracker V2</h1>
+
+<div id="topControls">
+<button onclick="newGame()">New Game</button>
+<select id="savedGames" onchange="loadGame(this.value)"></select>
+</div>
+
+<div id="scoreboard">
+<div class="team">
+<img src="logos/teamA.png">
+<input id="teamAName" value="Team A">
+<h2 id="scoreA">0</h2>
+</div>
+
+<div class="center">
+<p>Inning: <span id="inning">1</span></p>
+<p>Outs: <span id="outs">0</span></p>
+<p>Bases: <span id="bases">○○○</span></p>
+</div>
+
+<div class="team">
+<img src="logos/teamB.png">
+<input id="teamBName" value="Team B">
+<h2 id="scoreB">0</h2>
+</div>
+</div>
+
+<h3>Matchup</h3>
+<select id="batterSelect"></select>
+<select id="pitcherSelect"></select>
+
+<h3>Pitch Result</h3>
+<div class="buttons">
+<button onclick="atBat('single')">Single</button>
+<button onclick="atBat('double')">Double</button>
+<button onclick="atBat('triple')">Triple</button>
+<button onclick="atBat('homeRun')">HR</button>
+<button onclick="atBat('strikeout')">K</button>
+<button onclick="atBat('out')">Out</button>
+<button onclick="atBat('error')">Error</button>
+</div>
+
+<h3>Players</h3>
+<div id="playerStats"></div>
+
+<script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('sw.js');
+}
+</script>
+
+</body>
+</html>
